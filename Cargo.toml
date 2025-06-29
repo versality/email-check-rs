@@ -1,0 +1,17 @@
+[package]
+name = "check-email"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+dirs = "6.0"
+log = "0.4"
+env_logger = "0.11"
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.8"
+rfc2047-decoder = "1.0"
+
+[dev-dependencies]
+tempfile = "3.8"
