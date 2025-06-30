@@ -14,18 +14,3 @@ pub fn sync_mail() -> Result<()> {
 
     Ok(())
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn sync_mail_calls_mbsync() {
-        let result = sync_mail();
-
-        match result {
-            Ok(_) => println!("mbsync succeeded"),
-            Err(e) => println!("mbsync failed (expected in test environment): {}", e),
-        }
-    }
-}
