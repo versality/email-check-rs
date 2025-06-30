@@ -84,7 +84,7 @@ fn parse_email_file(file_path: &Path) -> Result<Email> {
         }
 
         if let Some(raw_from) = line.strip_prefix("From: ") {
-            from = raw_from.to_string();
+            from = decode_rfc2047(raw_from);
         }
     }
 
