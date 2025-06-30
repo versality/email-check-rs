@@ -131,14 +131,10 @@ mod tests {
 
     #[test]
     fn decode_rfc2047_handles_encoded_subjects() {
-
-        assert_eq!(decode_rfc2047("Plain Subject"), "Plain Subject");
-
-
         let encoded = "=?UTF-8?B?VGVzdCBTdWJqZWN0?=";
         let decoded = decode_rfc2047(encoded);
 
-        assert!(!decoded.is_empty());
+        assert_eq!(decoded, "Test Subject");
     }
 
     #[test]
