@@ -4,8 +4,10 @@ use std::process::Command;
 pub fn send_notification(subject: &str, from: &str) -> Result<()> {
     let body = format!("From: {}\nSubject: {}", from, subject);
     
+    // The app name is how a window manager tells this notification apart from
+    // every other bare notify-send and can jump to the mail reader.
     let output = Command::new("notify-send")
-        .args(["New Mail", &body])
+        .args(["-a", "neomutt", "New Mail", &body])
         .output()
         .context("Failed to execute notify-send - is it installed?")?;
 
